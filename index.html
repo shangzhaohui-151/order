@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+.nav{
+	width: 100%;
+	height: 4rem;
+	background-color: #000;
+}
+.nav span{
+	color: #fff;
+	line-height: 4rem;
+	padding-left: 2%;
+}
+.bar-wrap{
+	display: flex;
+	margin-top: 1%;
+	margin-left: 28%;
+}
+.bar1{
+	margin-right: 7%;
+}
+.bar2{
+	margin-left: 7%;
+}
+.bar span{
+	font-size: 18px;
+}
+ .table{
+ 	width: 94%;
+ 	margin-left: 3%;
+ 	margin-right: 3%;
+ 	margin-top: 1%;
+ 	box-sizing: border-box;
+ }
+ .buttongroup{
+ 	
+ 	margin-left: 80%;
+ 	display: flex;
+ 	margin-top: 2%;
+ }
+ .buttongroup input{
+ 	background-color: #337ab7;
+ 	color: white;
+ 	width: 22%;
+ 	height: 30px;
+ 	outline: none;
+ 	border: none;
+ 	margin-right: 1rem;
+ }
+ hr{
+ 	background-color: #337ab7;
+ 	width: 100%;
+ 	height: 1px;
+ 	margin-top: 2%;
+ 	margin-bottom: 0;
+ }
+ .footer{
+ 	margin-left: 40%;
+ }
+.bgRed{
+	background-color: #b2dba1;
+}
+</style>
+<body>
+	<div class="nav"><span>免税订单 > 订单上架</span></div>
+	<div class="buttongroup">
+		<input type="button" name="" value="查询">
+		<input type="button" name="" value="清空">
+		<input type="button" name="" value="上架">
+	</div>
+
+
+	<div id="app">
+		<div class="bar-wrap">
+		<div class="bar1 bar" >
+			<span>订货单号：</span><input type="text" name="" placeholder="请输入订货编号" v-model="newperson.orderid"  @keyup.enter="addPerson" />
+		</div>
+		<div class="bar2 bar">
+			<span>订货单号：</span><input type="text" name="" placeholder="请输入提货编号">
+		</div>
+		</div>
+		<hr>
+		<table class="table table-bordered table-striped">
+			<caption>订单列表</caption>
+  			<thead>
+    		<tr>
+    			<th><input type="checkbox" name=""></th>
+    			<th>序号</th>
+      			<th>提货地点</th>
+      			<th>离岛时间</th>
+      			<th>旅客姓名</th>
+      			<th>航班信息</th>
+      			<th>分货号</th>
+      			<th>订单编号</th>
+      			<th>提货编号</th>
+      			<th>状态</th>
+    		</tr>
+  			</thead>
+  			<tbody>
+    		<tr v-for="(item,index) in person">
+      			<td><input type="checkbox" name=""></td>
+      			<td>{{item.order}}</td>
+      			<td>{{item.place}}</td>
+      			<td>{{item.time}}</td>
+      			<td>{{item.name}}</td>
+      			<td>{{item.plane}}</td>
+      			<td>{{item.slice}}</td>
+      			<td>{{item.orderid}}</td>
+      			<td>{{item.takeid}}</td>
+      			<td>{{item.state}}</td>
+    		</tr>
+    		<tr>
+      			<td><input type="checkbox" name=""></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+    		</tr>
+    		<tr>
+      			<td><input type="checkbox" name=""></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+    		</tr>
+    		</tr>
+    		<tr>
+      			<td><input type="checkbox" name=""></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+    		</tr>
+    		<tr>s
+      			<td><input type="checkbox" name=""></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+      			<td></td>
+    		</tr>
+    		
+    		
+  			</tbody>
+		</table>
+	</div>
+
+
+
+	<div class="footer">
+		<ul class="pagination">
+    		<li><a href="#">&laquo;</a></li>
+    		<li class="active"><a href="#">1</a></li>
+    		<li class="disabled"><a href="#">2</a></li>
+    		<li><a href="#">3</a></li>
+    		<li><a href="#">4</a></li>
+    		<li><a href="#">5</a></li>
+    		<li><a href="#">6</a></li>
+    		<li><a href="#">7</a></li>
+    		<li><a href="#">&raquo;</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="vue.js"></script>
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				newperson:{
+					order:'3',
+					place:'三亚国际机场',
+					time:'2020.10.11',
+					name:'xxxx',
+					plane:'G2020',
+					slice:'001',
+					orderid:'',
+					takeid:'20201011',
+					state:'已拣货'
+				},
+				person:[
+				{
+					order:'1',
+					place:'三亚国际机场',
+					time:'2020.10.11',
+					name:'xxxx',
+					plane:'G2020',
+					slice:'001',
+					orderid:'xxxxxxxx',
+					takeid:'20201011',
+					state:'已拣货'
+				},
+				{
+					order:'2',
+					place:'三亚国际机场',
+					time:'2020.10.11',
+					name:'xxxx',
+					plane:'G2020',
+					slice:'001',
+					orderid:'xxxxxxxx',
+					takeid:'20201011',
+					state:'已拣货'	
+				}
+				]
+				
+			},
+			methods:{
+				addPerson:function(){
+					this.person.push(this.newperson);
+					this.newperson={order:'4',
+					place:'三亚国际机场',
+					time:'2020.10.11',
+					name:'xxxx',
+					plane:'G2020',
+					slice:'001',
+					orderid:'',
+					takeid:'20201011',
+					state:'已拣货'};
+				},
+
+			}
+		})
+	</script>
+</body>
+</html>
